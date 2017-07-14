@@ -13,7 +13,7 @@ import java.sql.Statement;
 
 public class DataInText {
 	private Connection connect = null;
-	private Statement statement = null;
+	
 
 	public DataInText() {
 		// TODO Auto-generated constructor stub
@@ -28,7 +28,7 @@ public class DataInText {
 	}
 
 	private void addTabletoDataBase() throws Exception {
-
+		Statement statement = null;
 		// This will load the MySQL driver, each DB has its own driver
 		Class.forName("com.mysql.jdbc.Driver");
 		// Setup the connection with the DB

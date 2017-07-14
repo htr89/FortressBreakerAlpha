@@ -15,13 +15,6 @@ public class MenuPanelView extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JButton butStart;
-	private JButton butInfo;
-	private JButton butExit;
-	private JButton butPvsAI;
-	private JButton butHS;
-	private JButton butback;
-
 	public MenuPanelView() throws IOException {
 
 		final int bordersX = 250;
@@ -37,9 +30,9 @@ public class MenuPanelView extends JPanel {
 	 */
 	public void addFirstSetListeningButtons(ActionListener actionListener) {
 		this.removeAll();
-		butStart = new JButton("Start");
-		butInfo = new JButton("Rules");
-		butExit = new JButton("Exit");
+		JButton butStart = new JButton("Start");
+		JButton butInfo = new JButton("Rules");
+		JButton butExit = new JButton("Exit");
 		butExit.addActionListener(actionListener);
 		butStart.addActionListener(actionListener);
 		butInfo.addActionListener(actionListener);
@@ -56,9 +49,9 @@ public class MenuPanelView extends JPanel {
 
 	public void addSecondSetListeningButtons(ActionListener actionListener) {
 		this.removeAll();
-		butPvsAI = new JButton("Player vs Ai");
-		butHS = new JButton("Highscore");
-		butback = new JButton("Back");
+		JButton butPvsAI = new JButton("Player vs Ai");
+		JButton butHS = new JButton("Highscore");
+		JButton butback = new JButton("Back");
 		butback.addActionListener(actionListener);
 		butHS.addActionListener(actionListener);
 		butPvsAI.addActionListener(actionListener);

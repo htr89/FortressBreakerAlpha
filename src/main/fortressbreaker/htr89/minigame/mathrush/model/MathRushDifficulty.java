@@ -7,6 +7,10 @@ public enum MathRushDifficulty {
 					new WeightedOperator(Operator.MINUS, 0.5d)), HARD(199, 100,
 							new WeightedOperator(Operator.PLUS, 0.5d), new WeightedOperator(Operator.MINUS, 0.5d));
 
+	public final int maxRandom;
+	public final int minRandom;
+	public final WeightedOperator[] allowedOperators;
+
 	public static enum Operator {
 		PLUS(0), MINUS(1), MULTIPLY(2);
 
@@ -39,10 +43,6 @@ public enum MathRushDifficulty {
 		}
 
 	}
-
-	public final int maxRandom;
-	public final int minRandom;
-	public final WeightedOperator[] allowedOperators;
 
 	private MathRushDifficulty(int max, int min, WeightedOperator... operator) {
 		this.maxRandom = max;

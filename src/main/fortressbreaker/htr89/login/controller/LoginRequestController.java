@@ -15,7 +15,7 @@ import main.fortressbreaker.htr89.view.MainFrameSingleton;
 public class LoginRequestController implements ActionListener {
 
 	private LoginRequestPanelView loginPanelView;
-	private PlayerModel playerModel;
+	
 
 	public LoginRequestController() throws IOException {
 		// TODO Auto-generated constructor stub
@@ -33,7 +33,7 @@ public class LoginRequestController implements ActionListener {
 		MainFrameSingleton.getInstance().remove(loginPanelView);
 		MainFrameSingleton.getInstance().repaint();
 
-		playerModel = new PlayerModel();
+		PlayerModel playerModel = new PlayerModel();
 		switch (button.getText()) {
 
 		case "Yes":

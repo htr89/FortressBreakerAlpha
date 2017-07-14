@@ -70,7 +70,7 @@ public class MainGameController {
 
 	public void theWinnerIs(String winner, String loser) {
 		MainFrameSingleton.getInstance().remove(mainGameView);
-		FBDAO fbdao = new FBDAO(playerModel.getUser_ID());
+		FBDAO fbdao = new FBDAO(playerModel.getUserId());
 		try {
 			fbdao.updateRecordGold("player_Gold", playerModel.getGold());
 			fbdao.updateRecordTypeOfWall("typeOfWall", playerModel.getTypeOfWall().getName());

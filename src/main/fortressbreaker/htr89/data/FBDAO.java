@@ -23,7 +23,7 @@ public class FBDAO {
 
 	}
 
-	public void updateRecordWins(String columnsName, int win) throws SQLException {
+	public void updateRecordWins(String columnsName, int winCounter) throws SQLException {
 
 		String updateTableSQL = "UPDATE Users SET " + columnsName + " = ?" + " WHERE UserID = ?";
 
@@ -31,14 +31,14 @@ public class FBDAO {
 		ResultSet rs = st
 				.executeQuery("SELECT " + columnsName + " FROM Users WHERE UserID = " + "'" + this.userId + "'");
 		if (rs.next()) {
-			win += rs.getInt(1);
+			winCounter += rs.getInt(1);
 		}
 		st.close();
 		rs.close();
 
 		preparedStatement = dbConnection.prepareStatement(updateTableSQL);
 
-		preparedStatement.setInt(1, win);
+		preparedStatement.setInt(1, winCounter);
 		preparedStatement.setString(2, this.userId);
 
 		// execute update SQL stetement

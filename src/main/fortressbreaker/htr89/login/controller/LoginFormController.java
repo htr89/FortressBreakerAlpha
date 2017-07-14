@@ -33,7 +33,7 @@ public class LoginFormController implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		insertInDATA();
 		playerModel.setName(loginFormView.getInsertName().getText());
-		playerModel.setUser_ID(loginFormView.getInsertUserIDTextF().getText());
+		playerModel.setUserId(loginFormView.getInsertUserIDTextF().getText());
 		MainFrameSingleton.getInstance().remove(loginFormView);
 		MainFrameSingleton.getInstance().repaint();
 		new IntroController(playerModel);
@@ -58,9 +58,7 @@ public class LoginFormController implements ActionListener {
 				preparedStmt.setString(2, loginFormView.getInsertUserIDTextF().getText());
 				preparedStmt.execute();
 
-			} else {
-
-			}
+			} 
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

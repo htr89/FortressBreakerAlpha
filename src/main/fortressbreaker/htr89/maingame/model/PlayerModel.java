@@ -21,11 +21,11 @@ public class PlayerModel {
 		gold = 50;
 	}
 
-	public String getUser_ID() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUser_ID(String user_ID) {
+	public void setUserId(String user_ID) {
 		this.userId = user_ID;
 	}
 

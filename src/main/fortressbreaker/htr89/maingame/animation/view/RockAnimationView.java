@@ -17,7 +17,7 @@ public class RockAnimationView extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private BufferedImage rockbullet;
 	private AffineTransformOp op;
-	double rotationRequired = Math.toRadians(45);
+	private double rotationRequired = Math.toRadians(45);
 	private AffineTransform transform;
 	private Graphics2D g2;
 	private int startPositionX = 30;
