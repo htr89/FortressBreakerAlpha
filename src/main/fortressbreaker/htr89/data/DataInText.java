@@ -12,16 +12,14 @@ import java.sql.Statement;
  */
 
 public class DataInText {
-	private Connection connect = null;
-	
 
 	public DataInText() {
-		// TODO Auto-generated constructor stub
+
 		try {
 			this.addTabletoDataBase();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -29,16 +27,16 @@ public class DataInText {
 
 	private void addTabletoDataBase() throws Exception {
 		Statement statement = null;
+		Connection connect = null;
 		// This will load the MySQL driver, each DB has its own driver
 		Class.forName("com.mysql.jdbc.Driver");
 		// Setup the connection with the DB
 		try {
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/highscore?user=root&password=password");
 		} catch (Exception e) {
-			// TODO: handle exception
+
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/highscore?user=root");
-		} // or
-			// user=root
+		} 
 
 		// Statements allow to issue SQL queries to the database
 		statement = connect.createStatement();

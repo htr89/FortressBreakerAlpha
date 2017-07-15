@@ -72,12 +72,14 @@ public class MainGameController {
 		MainFrameSingleton.getInstance().remove(mainGameView);
 		FBDAO fbdao = new FBDAO(playerModel.getUserId());
 		try {
-			fbdao.updateRecordGold("player_Gold", playerModel.getGold());
+			fbdao.updateNumericRecord("player_Gold", 1);
 			fbdao.updateRecordTypeOfWall("typeOfWall", playerModel.getTypeOfWall().getName());
 			if (winner == playerModel.getName()) {
-				fbdao.updateRecordWins("wins", 1);
+				fbdao.updateNumericRecord("wins", 1);
+
 			}
-			fbdao.updateRecordPlayedGames("playedGames", 1);
+			fbdao.updateNumericRecord("playedGames", 1);
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

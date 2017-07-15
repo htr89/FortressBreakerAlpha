@@ -23,22 +23,48 @@ public class FBDAO {
 
 	}
 
-	public void updateRecordWins(String columnsName, int winCounter) throws SQLException {
+	/**
+	 * This method will update a numeric value in the Database, all the actual
+	 * numeric values are integer. It will get the current value before summing
+	 * it to the new one.
+	 * 
+	 * @param columnsName
+	 *            the current Actual Parameters can be: "player_Gold",
+	 *            "playedGames" and "wins"
+	 * @param numericValue
+	 */
+	public void updateNumericRecord(String columnsName, int numericValue) {
+		int recordedNumber;
+		try {
+			recordedNumber = this.getCurrentValue(columnsName);
+			this.updateRecordNumericValue(columnsName, recordedNumber + numericValue);
+		} catch (SQLException e) {
 
-		String updateTableSQL = "UPDATE Users SET " + columnsName + " = ?" + " WHERE UserID = ?";
+			e.printStackTrace();
+		}
 
+	}
+
+	private int getCurrentValue(String columnsName) throws SQLException {
 		Statement st = dbConnection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		ResultSet rs = st
 				.executeQuery("SELECT " + columnsName + " FROM Users WHERE UserID = " + "'" + this.userId + "'");
+		int recordedNumber = 0;
 		if (rs.next()) {
-			winCounter += rs.getInt(1);
+			recordedNumber += rs.getInt(1);
 		}
 		st.close();
 		rs.close();
+		return recordedNumber;
+	}
+
+	private void updateRecordNumericValue(String columnsName, int numericValue) throws SQLException {
+
+		String updateTableSQL = "UPDATE Users SET " + columnsName + " = ?" + " WHERE UserID = ?";
 
 		preparedStatement = dbConnection.prepareStatement(updateTableSQL);
 
-		preparedStatement.setInt(1, winCounter);
+		preparedStatement.setInt(1, numericValue);
 		preparedStatement.setString(2, this.userId);
 
 		// execute update SQL stetement
@@ -59,14 +85,6 @@ public class FBDAO {
 		preparedStatement.executeUpdate();
 
 		System.out.println("Record is updated to Users table!");
-	}
-
-	public void updateRecordGold(String columnsName, int gold) throws SQLException {
-		this.updateRecordWins(columnsName, gold);
-	}
-
-	public void updateRecordPlayedGames(String columnsName, int playedGames) throws SQLException {
-		this.updateRecordWins(columnsName, playedGames);
 	}
 
 	public void closeStatement() {

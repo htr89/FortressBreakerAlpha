@@ -18,16 +18,12 @@ public class LoginFormView extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JLabel requestLabel;
-
-	private JLabel secondrequestLabel;
 	private JTextField insertNameTextfield;
-
 	private JTextField insertUserIDTextF;
 	private JButton logButton;
 
 	public LoginFormView() {
-		// TODO Auto-generated constructor stub
+		
 
 		final int bordersX = 250;
 		final int bordersY = 450;
@@ -41,8 +37,8 @@ public class LoginFormView extends JPanel {
 	 * here stands the components's initialization and eventually listeners.
 	 */
 	public final void addComponentsWithListener(ActionListener actionListener) {
-		requestLabel = new JLabel("Enter your Name");
-		secondrequestLabel = new JLabel("Enter your UserID");
+		JLabel requestLabel = new JLabel("Enter your Name");
+		JLabel secondrequestLabel = new JLabel("Enter your UserID");
 		this.enanchLabels(requestLabel, secondrequestLabel);
 		insertNameTextfield = new JTextField();
 		insertUserIDTextF = new JTextField();
